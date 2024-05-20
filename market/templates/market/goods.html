@@ -1,0 +1,46 @@
+{% extends 'market/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<h2 id="add_cr" xmlns="http://www.w3.org/1999/html">goods</h2>
+
+    <div class="card-deck">
+        {% for goods in goods_s %}
+            <div class="col-md-4 mb-4">
+                <img src="{{ goods.image_url }}" class="card-img-top" alt="{{ goods.name }}" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">{{ goods.name }}</h5>
+                    <p class="card-text">{{ goods.price }}</p>
+                    <a type="button" class="btn btn-primary" href="{% url 'add_to_cart_goods' goods_id=goods.id %}">Add to cart</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if goods_s.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <h4><a href="?page={{ goods_s.previous_page_number }}">previous</a></h4>
+            {% endif %}
+
+            {% if goods_s.has_next %}
+                <h4><a href="?page={{ goods_s.next_page_number }}">next page</a></h4>
+            {% endif %}
+
+            <span class="current">
+                Page {{ goods_s.number }} of {{ goods_s.paginator.num_pages }}.
+            </span>
+
+        </span>
+    </div>
+
+    <a href="{% url 'delivery_time' %}" class="btn btn-primary btn-lg btn-block">NEXT</a>
+{% endblock %}
+
+
+
+{% block script %}
+    <script src="{% static 'market/index.js' %}"></script>
+{% endblock %}

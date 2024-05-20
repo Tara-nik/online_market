@@ -1,0 +1,28 @@
+{% extends 'market/layout.html' %}
+{% load static %}
+
+
+
+{% block body %}
+    <h2 id="add_cr">Add Credit</h2>
+    <form id="addCreditForm" method="post" action="{% url 'add_credit' %}">
+        {% csrf_token %}
+        <div class="form-group" id="form_credit">
+            <button class="cr_bt" type="button" id="ten" onclick="setCredit(10)">10$</button>
+            <button class="cr_bt" type="button" id="twenty" onclick="setCredit(20)">20$</button>
+            <button class="cr_bt" type="button" id="Hundred" onclick="setCredit(100)">100$</button>
+        </div>
+        <input type="hidden" name="credit_amount" id="credit_amount" value="0">
+        <button class="cr_bt_or" type="submit">Add Credit</button>
+    </form>
+    <h3></h3>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'your_pizza/index.js' %}"></script>
+    <script>
+        function setCredit(amount) {
+            document.querySelector('#credit_amount').value = amount;
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'market/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+    <h2>Order Detail</h2>
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h4>Your Order</h4>
+            {% if selected_goods %}
+                <ul>
+                    {% for goods in selected_goods %}
+                        <li>
+                            <strong>{{ goods.name }}</strong>
+                            <br>
+                            Image: <img src="{{ goods.image_url }}" alt="{{ goods.name }}" height="100">
+                            <br>
+                            Price: ${{ goods.price }}
+                            <br>
+                            <form method="post" action="{% url 'delete_goods' goods.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </li>
+                        <hr>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Your order is empty. Add goods to create your Order!</p>
+            {% endif %}
+        </div>
+
+        <div class="col-md-6">
+            <h4>delivery time</h4>
+            {% if selected_delivery %}
+                {% for delivery in selected_delivery %}
+                    <ul>
+                        <li>
+                            <p>Selected delivery : {{ delivery.time }} days later</p>
+                            <p>price : ${{ delivery.delivery_price }} </p>
+
+                            <form method="post" action="{% url 'delete_delivery' time=delivery.time %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </li>
+                    </ul>
+                {% endfor %}
+            {% else %}
+                <p>Choose the time of the delivery!</p>
+            {% endif %}
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6" >
+            <p id="tot_price">Total price : {{total_price|floatformat:2 }}  </p>
+        </div>
+    </div>
+
+    <a href="{% url 'reset_order' %}" class="btn btn-warning">Reset Order</a>
+    <a href="{% url 'goods' %}" class="btn btn-primary">Back to goods</a>
+    <a href="/order_checkout/"  id="checkout" class="btn btn-primary btn-lg btn-block">Checkout</a>
+
+{% endblock %}
+
+
+
+
+{% block script %}
+    <script src="{% static 'market/index.js' %}" ></script>
+{% endblock %}

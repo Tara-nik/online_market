@@ -1,0 +1,23 @@
+{% extends 'market/layout.html' %}
+{% load static %}
+
+{% block body %}
+    <div>
+        <h3 id="add_cr">Available Delivery Times:</h3>
+        <ul>
+            {% for delivery in deliverys %}
+                <li class="li_dou">
+                    <a href="{% url 'add_to_cart_delivery_time' delivery_id=delivery.id %}">
+                        {{ delivery.time }} later : ${{ delivery.delivery_price }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'order_detail' %}" class="btn btn-primary btn-lg">NEXT</a>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'market/index.js' %}"></script>
+{% endblock %}

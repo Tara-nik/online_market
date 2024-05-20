@@ -1,0 +1,136 @@
+
+body {
+    background-color: #fff;
+    background-image: url(https://media.istockphoto.com/id/637350420/photo/grunge-background.jpg?s=612x612&w=0&k=20&c=PDbu4OEn5Lh6TMW7WxR2_mFPdhJpXQMYxiE_fL4j9Mo=);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin-left: 2%;
+
+    
+   
+}
+.index_image {
+    
+    margin-left: 10%;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.card-deck {
+    size: 5%;
+    padding-left: 5%;
+    padding-right: 10%;
+    ;
+
+}
+
+
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    size: 5%;
+    background-color: antiquewhite
+}
+
+.nav-item {
+    color:rgb(229, 117, 12);
+    font-weight: normal;
+   
+   
+}
+
+#y_cred {
+    margin-top: 5%;
+    font-size: xx-large;
+    font-family: sans-serif;
+    color: #585755;
+    }
+
+#brand {
+    color:rgb(213, 169, 127);
+    font-weight: bold;
+    font-feature-settings: "falt";
+    font-size:x-large;
+}
+
+#add_cr {
+    padding-top: 20px;
+    color:rgb(229, 117, 12);
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+    border-bottom-style: groove;
+    font-family: 'Gill Sans', 'Gill Sans MT';
+}
+
+#addCreditForm {
+    text-align: center;
+    
+}
+
+#checkout {
+    margin-top: 20px;
+}
+
+.cr_bt {
+    border: solid orange 1px;
+    border-radius: 10px;
+    font-size: 25px;
+    color: #595856;
+    background-color: #f0e1d1;
+    margin: 10px;
+    
+}
+
+.cr_bt_or {
+    border: solid orange 1px;
+    border-radius: 15px;
+    font-size: 30px;
+    color: #595856;
+    background-color: #f0e1d1;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.li_dou {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #e68422;
+    margin-left: 2%;
+    
+}
+
+}
+
+.card-img-top {
+    
+    border: solid #e4e2e0;
+    border-width: 5px;
+    border-radius: 8px; 
+    margin: 5px;
+
+    
+}
+
+.navbar {
+
+    background-color: #e6bf84;
+    border: solid #e68422;
+    border-style: groove;
+    border-radius: 12px;
+    margin-right: 10%;
+    }
+
+.navbar-toggler-icon {
+    background-color: rgb(167, 119, 79); 
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+}

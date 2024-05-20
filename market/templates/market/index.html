@@ -1,0 +1,32 @@
+{% extends 'market/layout.html' %}
+{% load static %}
+
+{% block body %}
+    <div class="row">
+
+            {% if user.is_authenticated %}
+                <h4 id="y_cred">Welcome, {{ user.username }}!</h4><br>
+                <h4 id="y_cred">Your credit is: {{ user.credit_user }}$</h4>
+            {% else %}
+                <h2 id="y_cred">Please <a href="{% url 'login' %}">log in</a> to view the page</h2>
+                <!-- Other content for non-authenticated users -->
+            {% endif %}
+            <p id="done"></p>
+
+
+    </div>
+<!--    <div class="index_image">-->
+<!--        <img class="col-md-6 float-md-end mb-3 ms-md-3"  src="https://www.twopeasandtheirpod.com/wp-content/uploads/2021/03/Veggie-Pizza-8.jpg">-->
+<!--    </div>-->
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'market/index.js' %}"></script>
+{% endblock %}
